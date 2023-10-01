@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  @if ($slots.title)
+    {{{ await $slots.title({ title }) }}}
+  @else
+    <title>{{ title ? titleCase(title) + ' | ' : '' }} Adocasts' EdgeJS Components Series</title>
+  @endif
+
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+
+  <div class="max-w-4xl mx-auto my-8">
+    <header class="bg-gray-100 p-6 -mx-6 mb-6 rounded-md">
+      @if (title != 'Home')
+        <a href="/" class="text-xs">Home</a>
+      @endif
+      <h1 class="text-2xl font-bold">{{ titleCase(title) }}</h1>
+    </header>
+
+    <main {{ $props.serializeExcept(['title']) }}>
+      {{{ await $slots.main() }}}
+    </main>
+  </div>
+  
+</body>
+</html>

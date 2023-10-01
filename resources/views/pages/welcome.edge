@@ -1,0 +1,12 @@
+@layouts.app({ title: 'Home' })
+
+  <strong>Components</strong>
+  <nav class="flex flex-col gap-1.5">
+    @each (name in components)
+      <a href="{{ route('components', { name }) }}">
+        {{ titleCase(name) }}
+      </a>
+    @endeach
+  </nav>
+
+@end
