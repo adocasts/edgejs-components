@@ -1,8 +1,102 @@
-@layouts.app({ title: request.params().name })
+@layout.app({ title: request.params().name })
 
   <h3 class="font-bold">Base Button</h3>
+  <div x-data @click="alert('Thanks for clicking!')" class="mb-8 space-x-3 space-y-3">
+    @button()
+      Default, Base Button
+    @end
+  </div>
+
+  <h3 class="font-bold">Sizes</h3>
   <div class="mb-8 space-x-3 space-y-3">
-    Button goes here
+    @button({ size: 'lg' })
+      LG Button
+    @end
+    
+    @button({ size: 'base' })
+      Base Button
+    @end
+
+    @button({ size: 'sm' })
+      SM Button
+    @end
+
+    @button({ size: 'xs' })
+      XS Button
+    @end
+  </div>
+
+  <h3 class="font-bold">Variants</h3>
+  <div class="mb-8 space-x-3 space-y-3">
+    @button({ variant: 'light' })
+      Light Button
+    @end
+
+    @button({ variant: 'dark' })
+      Dark Button
+    @end
+
+    @button({ variant: 'blue' })
+      Blue Button
+    @end
+
+    @button({ variant: 'red' })
+      Red Button
+    @end
+
+    @button({ variant: 'green' })
+      Green Button
+    @end
+
+    @button({ variant: 'yellow' })
+      Yellow Button
+    @end
+  </div>
+
+  <h3 class="font-bold">Inverse</h3>
+  <div class="mb-8 space-x-3 space-y-3">
+    @button.inverse({ variant: 'light' })
+      Light Button
+    @end
+
+    @button.inverse({ variant: 'blue' })
+      Blue Button
+    @end
+
+    @button.inverse({ variant: 'red' })
+      Red Button
+    @end
+
+    @button.inverse({ variant: 'green' })
+      Green Button
+    @end
+
+    @button.inverse({ variant: 'yellow' })
+      Yellow Button
+    @end
+  </div>
+
+  <h3 class="font-bold">Outline</h3>
+  <div class="mb-8 space-x-3 space-y-3">
+    @button.outline({ variant: 'dark' })
+      Dark Button
+    @end
+
+    @button.outline({ variant: 'blue' })
+      Blue Button
+    @end
+
+    @button.outline({ variant: 'red' })
+      Red Button
+    @end
+
+    @button.outline({ variant: 'green' })
+      Green Button
+    @end
+
+    @button.outline({ variant: 'yellow' })
+      Yellow Button
+    @end
   </div>
 
 @end
