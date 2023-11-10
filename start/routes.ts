@@ -21,6 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 const components = [
+  'alert',
   'button'
 ]
 

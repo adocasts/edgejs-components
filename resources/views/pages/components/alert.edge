@@ -1,0 +1,64 @@
+@layout.app({ title: request.params().name })
+
+  <h3 class="font-bold">Base Alert</h3>
+  <div x-data class="mb-8 space-x-3 space-y-3">
+    @alert({ dismissable: true, selfDestruct: true })
+      @slot('icon')
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg>
+      @endslot
+
+      @slot('title')
+        Default, Base Alert
+      @endslot
+
+      This is our message!
+    @end
+  </div>
+
+  <h3 class="font-bold">Variants</h3>
+  <div x-data class="mb-8 space-y-3">
+    @alert({ variant: 'light' })
+      Light Alert
+    @end
+
+    @alert({ variant: 'dark' })
+      Dark Alert
+    @end
+
+    @alert({ variant: 'blue' })
+      Blue Alert
+    @end
+
+    @alert({ variant: 'red' })
+      Red Alert
+    @end
+
+    @alert({ variant: 'green' })
+      Green Alert
+    @end
+
+    @alert({ variant: 'yellow' })
+      Yellow Alert
+    @end
+  </div>
+
+  <h3 class="font-bold">Inverse</h3>
+  <div x-data class="mb-8 space-y-3">
+    @alert.inverse({ variant: 'blue' })
+      Blue Alert
+    @end
+
+    @alert.inverse({ variant: 'red' })
+      Red Alert
+    @end
+
+    @alert.inverse({ variant: 'green' })
+      Green Alert
+    @end
+
+    @alert.inverse({ variant: 'yellow' })
+      Yellow Alert
+    @end
+  </div>
+
+@end

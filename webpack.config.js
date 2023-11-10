@@ -141,6 +141,7 @@ Encore.configureDevServerOptions((options) => {
    * Enable live reload and add views directory
    */
   options.liveReload = true
+  options.allowedHosts = 'all'
   options.static.push({
     directory: join(__dirname, './resources/views'),
     watch: true,

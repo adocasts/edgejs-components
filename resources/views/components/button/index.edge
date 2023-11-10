@@ -17,7 +17,7 @@
 })
 
 <button 
-  {{ $props.serializeExcept(['title', 'class', 'size', 'variant', 'variants']) }}
+  {{ $props.serializeExcept(['type', 'class', 'size', 'variant', 'variants']) }}
   x-data
   type="{{ type || 'button' }}" 
   class="{{ sizes[size] }} {{ variants[variant] }} {{ $props.class }}">
