@@ -1,0 +1,29 @@
+<div 
+  @if (active)
+    x-init="activeAccordion = id"
+  @endif
+
+  x-data="{ id: $id('accordion') }"
+  class="bg-white cursor-pointer group" x-cloak>
+  <button @click="setActiveAccordion(id)"
+    class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
+    <span>
+      @if ($slots.title)
+        {{{ await $slots.title() }}}
+      @else
+        {{ title }}
+      @endif
+    </span>
+    <div :class="{ 'rotate-90': activeAccordion==id }"
+      class="relative flex items-center justify-center w-2.5 h-2.5 duration-300 ease-out">
+      <div class="absolute w-0.5 h-full bg-neutral-500 group-hover:bg-neutral-800 rounded-full"></div>
+      <div :class="{ 'rotate-90': activeAccordion==id }"
+        class="absolute w-full h-0.5 ease duration-500 bg-neutral-500 group-hover:bg-neutral-800 rounded-full"></div>
+    </div>
+  </button>
+  <div x-show="activeAccordion==id" x-collapse x-cloak>
+    <div class="pb-5 pt-0 opacity-70">
+      {{{ await $slots.main() }}}
+    </div>
+  </div>
+</div>

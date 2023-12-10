@@ -1,0 +1,49 @@
+@layout.app({ title: request.params().name })
+
+  <h3 class="font-bold">Base Form</h3>
+  <div x-data class="mb-8 flex space-x-3">
+    @form({ action: route('form.post') })
+      @button({ type: 'submit' })
+        Send Post
+      @end
+    @end
+
+    @form({ method: 'PATCH', action: route('form.patch') })
+      @button({ type: 'submit' })
+        Send Patch
+      @end
+    @end
+
+    @form({ method: 'PUT', action: route('form.put') })
+      @button({ type: 'submit' })
+        Send Put
+      @end
+    @end
+
+    @form({ method: 'DELETE', action: route('form.delete') })
+      @button({ type: 'submit' })
+        Send Delete
+      @end
+    @end
+  </div>
+
+  <h3 class="font-bold">Form Methods</h3>
+  <div x-data class="mb-8 flex space-x-3">
+    @form.patch({ '@submit.prevent': 'alert("PATCH")' })
+      @button({ type: 'submit' })
+        Send Patch
+      @end
+    @end
+
+    @form.put({ action: route('form.put') })
+      @button({ type: 'submit' })
+        Send Put
+      @end
+    @end
+
+    @form.delete({ action: route('form.delete') })
+      @button({ type: 'submit' })
+        Send Delete
+      @end
+    @end
+@end

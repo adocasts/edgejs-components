@@ -21,8 +21,10 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 const components = [
+  'accordion',
   'alert',
-  'button'
+  'button',
+  'form'
 ]
 
 
@@ -33,3 +35,23 @@ Route.get('/', async ({ view }) => {
 Route.get('/components/:name', async ({ view, params }) => {
   return view.render(`pages/components/${params.name}`)
 }).as('components')
+
+Route.post('/form', ({ request, response }) => {
+  console.log('METHOD', request.method())
+  return response.redirect().back()
+}).as('form.post')
+
+Route.put('/form', ({ request, response }) => {
+  console.log('METHOD', request.method())
+  return response.redirect().back()
+}).as('form.put')
+
+Route.patch('/form', ({ request, response }) => {
+  console.log('METHOD', request.method())
+  return response.redirect().back()
+}).as('form.patch')
+
+Route.delete('/form', ({ request, response }) => {
+  console.log('METHOD', request.method())
+  return response.redirect().back()
+}).as('form.delete')

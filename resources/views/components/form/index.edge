@@ -1,0 +1,18 @@
+{{--  /form?_method=PUT  --}}
+@set('action', $props.action)
+
+@if (action)
+  @set('delimiter', action.includes('?') ? '&' : '?')
+  @set('action', method ? `${action}${delimiter}_method=${method}` : action)
+@endif
+
+<form
+  @if (action)
+    action="{{ action }}"
+  @endif
+  method="POST"
+  {{ $props.serializeExcept(['method', 'action']) }}
+>
+  {{ csrfField() }}
+  {{{ await $slots.main() }}}
+</form>
